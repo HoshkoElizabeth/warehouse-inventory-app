@@ -6,7 +6,7 @@ export default function InventoryCard({ item, isFav, onToggleFav, onClick }) {
             onClick={onClick}
             style={{
                 borderRadius: 16, overflow: 'hidden',
-                background: '#fff',
+                background: 'var(--card-bg)',
                 boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
                 cursor: 'pointer',
                 transition: 'transform 0.2s ease, box-shadow 0.2s ease',
@@ -34,19 +34,19 @@ export default function InventoryCard({ item, isFav, onToggleFav, onClick }) {
                     onMouseEnter={e => e.target.style.transform = 'scale(1.05)'}
                     onMouseLeave={e => e.target.style.transform = 'scale(1)'}
                     onError={e => {
-                        e.target.src = 'https://placehold.co/400x200?text=📦+No+Photo';
+                        e.target.src = 'https://placehold.co/400x200?text=No+Photo';
                     }}
                 />
             </div>
 
             {/* Назва */}
             <div style={{ padding: '14px 16px' }}>
-                <h3 style={{ margin: 0, fontSize: 15, fontWeight: 600, color: '#222' }}>
+                <h3 style={{ margin: 0, fontSize: 15, fontWeight: 600, color: 'var(--text-main)' }}>
                     {item.inventory_name}
                 </h3>
                 {item.description && (
                     <p style={{
-                        margin: '6px 0 0', fontSize: 13, color: '#888',
+                        margin: '6px 0 0', fontSize: 13, color: 'var(--text-muted)',
                         overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
                     }}>
                         {item.description}
@@ -63,10 +63,10 @@ export default function InventoryCard({ item, isFav, onToggleFav, onClick }) {
                 title={isFav ? 'Видалити з улюблених' : 'Додати до улюблених'}
                 style={{
                     position: 'absolute', top: 10, right: 10,
-                    width: 36, height: 36,
-                    background: 'rgba(255,255,255,0.9)',
-                    border: 'none', borderRadius: '50%',
-                    cursor: 'pointer', fontSize: 18,
+                    width: 'auto', padding: '6px 12px',
+                    background: 'var(--header-bg)', color: 'var(--text-main)',
+                    border: '1px solid var(--border-color)', borderRadius: 16,
+                    cursor: 'pointer', fontSize: 13, fontWeight: 500,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
                     transition: 'transform 0.15s ease',
@@ -74,7 +74,7 @@ export default function InventoryCard({ item, isFav, onToggleFav, onClick }) {
                 onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.15)'}
                 onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
             >
-                {isFav ? '❤️' : '🤍'}
+                {isFav ? 'В улюблених' : '+ В улюблені'}
             </button>
         </div>
     );

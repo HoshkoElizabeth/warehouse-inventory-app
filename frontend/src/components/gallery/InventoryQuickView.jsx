@@ -36,7 +36,7 @@ export default function InventoryQuickView({ itemId, onClose }) {
             <div
                 onClick={e => e.stopPropagation()}
                 style={{
-                    background: '#fff', borderRadius: 20,
+                    background: 'var(--card-bg)', borderRadius: 20,
                     maxWidth: 520, width: '92%',
                     overflow: 'hidden',
                     boxShadow: '0 16px 48px rgba(0,0,0,0.3)',
@@ -46,8 +46,8 @@ export default function InventoryQuickView({ itemId, onClose }) {
                 <style>{`@keyframes slideUp { from { transform: translateY(20px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }`}</style>
 
                 {loading ? (
-                    <div style={{ padding: 48, textAlign: 'center', color: '#aaa' }}>
-                        ⏳ Завантаження...
+                    <div style={{ padding: 48, textAlign: 'center', color: 'var(--text-muted)' }}>
+                        Завантаження...
                     </div>
                 ) : item ? (
                     <>
@@ -63,8 +63,8 @@ export default function InventoryQuickView({ itemId, onClose }) {
 
                         {/* Текст */}
                         <div style={{ padding: '20px 24px 16px' }}>
-                            <h2 style={{ margin: '0 0 10px', fontSize: 22 }}>{item.inventory_name}</h2>
-                            <p style={{ margin: 0, color: '#666', lineHeight: 1.6, fontSize: 15 }}>
+                            <h2 style={{ margin: '0 0 10px', fontSize: 22, color: 'var(--text-main)' }}>{item.inventory_name}</h2>
+                            <p style={{ margin: 0, color: 'var(--text-muted)', lineHeight: 1.6, fontSize: 15 }}>
                                 {item.description || <em>Опис відсутній</em>}
                             </p>
                         </div>
@@ -79,9 +79,9 @@ export default function InventoryQuickView({ itemId, onClose }) {
                     style={{
                         display: 'block', width: '100%',
                         padding: '14px', border: 'none',
-                        borderTop: '1px solid #f0f0f0',
+                        borderTop: '1px solid var(--border-color)',
                         background: 'transparent', cursor: 'pointer',
-                        fontSize: 14, color: '#888',
+                        fontSize: 14, color: 'var(--text-main)',
                     }}
                 >
                     Закрити (або натисни Esc)

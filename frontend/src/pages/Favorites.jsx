@@ -9,7 +9,7 @@ export default function Favorites() {
     const [selectedId, setSelectedId] = useState(null);
 
     return (
-        <div style={{ minHeight: '100vh', background: '#f8f9fa' }}>
+        <div style={{ minHeight: '100vh', background: 'transparent' }}>
             <style>{`
         .fav-grid {
           display: grid;
@@ -23,15 +23,21 @@ export default function Favorites() {
 
             {/* Шапка */}
             <div style={{
-                background: '#fff', borderBottom: '1px solid #eee',
+                background: 'var(--header-bg)', borderBottom: '1px solid var(--border-color)',
                 padding: '16px 24px',
                 display: 'flex', gap: 20, alignItems: 'center',
             }}>
-                <Link to="/gallery" style={{ color: '#555', textDecoration: 'none', fontSize: 14 }}>
+                <Link to="/gallery" style={{
+                    display: 'inline-block', padding: '8px 16px',
+                    background: 'transparent', color: 'var(--text-main)',
+                    border: '1px solid var(--border-color)',
+                    borderRadius: 8, textDecoration: 'none', fontSize: 14,
+                    fontWeight: 500, cursor: 'pointer'
+                }}>
                     ← Назад до галереї
                 </Link>
-                <h1 style={{ margin: 0, fontSize: 20 }}>❤️ Улюблені</h1>
-                <span style={{ color: '#888', fontSize: 14 }}>
+                <h1 style={{ margin: 0, fontSize: 20, color: 'var(--text-main)' }}>Улюблені</h1>
+                <span style={{ color: 'var(--text-muted)', fontSize: 14 }}>
                     {favorites.length} {favorites.length === 1 ? 'елемент' : 'елементів'}
                 </span>
             </div>
@@ -40,11 +46,10 @@ export default function Favorites() {
             <div style={{ maxWidth: 1200, margin: '0 auto', padding: '28px 16px' }}>
                 {favorites.length === 0 ? (
                     /* Empty state */
-                    <div style={{ textAlign: 'center', padding: 80, color: '#aaa' }}>
-                        <div style={{ fontSize: 56, marginBottom: 16 }}>🤍</div>
+                    <div style={{ textAlign: 'center', padding: 80, color: 'var(--text-muted)' }}>
                         <p style={{ fontSize: 18, margin: '0 0 16px' }}>Улюблені порожні</p>
                         <p style={{ fontSize: 14, margin: '0 0 24px' }}>
-                            Натисніть ❤️ на картці у галереї, щоб додати елемент
+                            Натисніть кнопку на картці у галереї, щоб додати елемент
                         </p>
                         <Link
                             to="/gallery"

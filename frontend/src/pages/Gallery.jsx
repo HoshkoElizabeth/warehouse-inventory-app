@@ -10,21 +10,22 @@ function SkeletonCard() {
     return (
         <div style={{
             borderRadius: 16, overflow: 'hidden',
-            background: '#f0f0f0',
+            background: 'var(--card-bg)',
+            border: '1px solid var(--border-color)',
         }}>
             <div style={{
-                height: 200, background: '#e0e0e0',
+                height: 200, background: 'var(--border-color)',
                 animation: 'shimmer 1.5s ease-in-out infinite',
             }} />
             <div style={{ padding: '14px 16px' }}>
                 <div style={{
                     height: 16, width: '65%', borderRadius: 8,
-                    background: '#e0e0e0',
+                    background: 'var(--border-color)',
                     animation: 'shimmer 1.5s ease-in-out infinite',
                 }} />
                 <div style={{
                     height: 12, width: '40%', borderRadius: 8,
-                    background: '#e8e8e8', marginTop: 8,
+                    background: 'var(--border-color)', marginTop: 8,
                     animation: 'shimmer 1.5s ease-in-out infinite 0.2s',
                 }} />
             </div>
@@ -48,7 +49,7 @@ export default function Gallery() {
     }, []);
 
     return (
-        <div style={{ minHeight: '100vh', background: '#f8f9fa' }}>
+        <div style={{ minHeight: '100vh', background: 'transparent' }}>
             <style>{`
         @keyframes shimmer {
           0%, 100% { opacity: 1 }
@@ -69,17 +70,17 @@ export default function Gallery() {
 
             {/* Шапка */}
             <div style={{
-                background: '#fff', borderBottom: '1px solid #eee',
+                background: 'var(--header-bg)', borderBottom: '1px solid var(--border-color)',
                 padding: '16px 24px',
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                 position: 'sticky', top: 0, zIndex: 10,
                 boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
             }}>
-                <h1 style={{ margin: 0, fontSize: 20 }}>🏭 Склад — Галерея</h1>
-                <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
-                    <Link to="/admin" style={navLink}>Адмін-панель</Link>
-                    <Link to="/favorites" style={{ ...navLink, fontWeight: 600 }}>
-                        ❤️ Улюблені ({favorites.length})
+                <h1 style={{ margin: 0, fontSize: 20 }}>Склад — Галерея</h1>
+                <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+                    <Link to="/admin" style={btnOutlineStyle}>Адмін-панель</Link>
+                    <Link to="/favorites" style={btnPrimaryStyle}>
+                        Улюблені ({favorites.length})
                     </Link>
                 </div>
             </div>
@@ -90,10 +91,10 @@ export default function Gallery() {
                 {/* Помилка */}
                 {error && (
                     <div style={{
-                        padding: 20, background: '#fde8e8', borderRadius: 10,
+                        padding: 20, background: 'var(--card-bg)', border: '1px solid var(--border-color)', borderRadius: 10,
                         color: '#c62828', marginBottom: 24,
                     }}>
-                        ❌ {error}
+                        {error}
                     </div>
                 )}
 
@@ -105,11 +106,10 @@ export default function Gallery() {
                             ? (
                                 <div style={{
                                     gridColumn: '1 / -1', textAlign: 'center',
-                                    padding: 80, color: '#aaa',
+                                    padding: 80, color: 'var(--text-muted)',
                                 }}>
-                                    <div style={{ fontSize: 56, marginBottom: 16 }}>📦</div>
                                     <p style={{ fontSize: 18 }}>Інвентар порожній</p>
-                                    <Link to="/admin">Перейти до адмін-панелі</Link>
+                                    <Link to="/admin" style={{ ...btnPrimaryStyle, marginTop: 16 }}>Перейти до адмін-панелі</Link>
                                 </div>
                             )
                             : items.map(item => (
@@ -136,4 +136,17 @@ export default function Gallery() {
     );
 }
 
-const navLink = { color: '#555', textDecoration: 'none', fontSize: 14 };
+const btnOutlineStyle = {
+    display: 'inline-block', padding: '8px 16px',
+    background: 'transparent', color: 'var(--text-main)',
+    border: '1px solid var(--border-color)',
+    borderRadius: 8, textDecoration: 'none', fontSize: 14,
+    fontWeight: 500, cursor: 'pointer',
+};
+
+const btnPrimaryStyle = {
+    display: 'inline-block', padding: '8px 16px',
+    background: '#1976d2', color: '#fff',
+    border: 'none', borderRadius: 8, textDecoration: 'none', 
+    fontSize: 14, fontWeight: 500, cursor: 'pointer',
+};

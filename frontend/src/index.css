@@ -6,12 +6,24 @@
   color-scheme: light dark;
   color: #333;
   background-color: #f5f7fa;
+
+  --card-bg: #fff;
+  --header-bg: #fff;
+  --text-main: #333;
+  --text-muted: #888;
+  --border-color: #eee;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     color: #e0e0e0;
     background-color: #1a1a2e;
+
+    --card-bg: #2a2a40;
+    --header-bg: #222238;
+    --text-main: #e0e0e0;
+    --text-muted: #aaa;
+    --border-color: #3a3a5a;
   }
 }
 
