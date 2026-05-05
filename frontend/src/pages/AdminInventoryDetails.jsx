@@ -26,6 +26,7 @@ export default function AdminInventoryDetails() {
             <div style={{
                 marginTop: 16, background: '#fff', borderRadius: 16,
                 boxShadow: '0 2px 12px rgba(0,0,0,0.08)', overflow: 'hidden',
+                color: '#333'
             }}>
                 {/* Фото */}
                 <img
@@ -49,7 +50,7 @@ export default function AdminInventoryDetails() {
                             onClick={() => navigate(`/admin/${id}/edit`)}
                             style={btnPrimary}
                         >
-                            ✏️ Редагувати
+                            Редагувати
                         </button>
                         <button onClick={() => navigate('/admin')} style={btnOutline}>
                             Назад
@@ -72,4 +73,5 @@ const btnPrimary = {
 const btnOutline = {
     padding: '10px 20px', background: 'transparent',
     border: '1px solid #ddd', borderRadius: 8, cursor: 'pointer',
+    color: '#333'
 };

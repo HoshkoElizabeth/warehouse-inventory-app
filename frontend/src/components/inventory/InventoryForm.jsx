@@ -104,7 +104,7 @@ export default function InventoryForm({ initialData = {}, onSubmit, onPhotoSubmi
                 )}
 
                 <button type="submit" style={btnPrimary}>
-                    {isEdit ? '💾 Зберегти зміни' : '➕ Додати'}
+                    {isEdit ? 'Зберегти зміни' : 'Додати'}
                 </button>
             </form>
 
@@ -114,7 +114,7 @@ export default function InventoryForm({ initialData = {}, onSubmit, onPhotoSubmi
                     marginTop: 32, paddingTop: 24,
                     borderTop: '1px solid #eee',
                 }}>
-                    <h3 style={{ margin: '0 0 12px', fontSize: 16 }}>📸 Оновити фото</h3>
+                    <h3 style={{ margin: '0 0 12px', fontSize: 16 }}>Оновити фото</h3>
                     <input type="file" accept="image/*" onChange={handleFileChange} />
                     {photoPreview && (
                         <img

@@ -16,6 +16,7 @@ export default function ConfirmModal({ message = 'Ви впевнені?', onCon
                 style={{
                     background: '#fff', borderRadius: 12, padding: 32,
                     minWidth: 320, maxWidth: 420, boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
+                    color: '#333'
                 }}
             >
                 <h3 style={{ margin: '0 0 8px', fontSize: 18 }}>Підтвердження</h3>
@@ -27,6 +28,7 @@ export default function ConfirmModal({ message = 'Ви впевнені?', onCon
                         style={{
                             padding: '8px 20px', borderRadius: 8, border: '1px solid #ddd',
                             background: '#f5f5f5', cursor: 'pointer', fontSize: 14,
+                            color: '#333'
                         }}
                     >
                         Скасувати

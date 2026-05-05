@@ -16,7 +16,7 @@ export default function InventoryTable({ onDeleteClick }) {
     if (loading) {
         return (
             <div style={{ textAlign: 'center', padding: 40, color: '#888' }}>
-                ⏳ Завантаження...
+                Завантаження...
             </div>
         );
     }
@@ -24,7 +24,7 @@ export default function InventoryTable({ onDeleteClick }) {
     if (error) {
         return (
             <div style={{ padding: 20, background: '#fde8e8', borderRadius: 8, color: '#c62828' }}>
-                ❌ {error}
+                {error}
             </div>
         );
     }
@@ -32,7 +32,7 @@ export default function InventoryTable({ onDeleteClick }) {
     if (items.length === 0) {
         return (
             <div style={{ textAlign: 'center', padding: 60, color: '#aaa' }}>
-                <div style={{ fontSize: 48, marginBottom: 12 }}>📦</div>
+                <div style={{ fontSize: 48, marginBottom: 12 }}></div>
                 <p>Інвентар порожній. Додайте першу позицію!</p>
             </div>
         );
@@ -45,6 +45,7 @@ export default function InventoryTable({ onDeleteClick }) {
                 width: '100%', borderCollapse: 'collapse',
                 background: '#fff', borderRadius: 12, overflow: 'hidden',
                 boxShadow: '0 1px 8px rgba(0,0,0,0.08)',
+                color: '#333'
             }}>
                 <thead>
                     <tr style={{ background: '#f8f9fa', borderBottom: '2px solid #e9ecef' }}>
@@ -61,6 +62,7 @@ export default function InventoryTable({ onDeleteClick }) {
                             style={{
                                 borderBottom: '1px solid #f0f0f0',
                                 background: idx % 2 === 0 ? '#fff' : '#fafafa',
+                                color: '#333'
                             }}
                         >
                             <td style={td}>
@@ -85,19 +87,19 @@ export default function InventoryTable({ onDeleteClick }) {
                                     onClick={() => navigate(`/admin/${item.id}`)}
                                     style={btnOutline}
                                 >
-                                    👁 Переглянути
+                                    Переглянути
                                 </button>
                                 <button
                                     onClick={() => navigate(`/admin/${item.id}/edit`)}
                                     style={{ ...btnOutline, marginLeft: 6 }}
                                 >
-                                    ✏️ Редагувати
+                                    Редагувати
                                 </button>
                                 <button
                                     onClick={() => onDeleteClick(item.id)}
                                     style={{ ...btnOutline, marginLeft: 6, color: '#e53935', borderColor: '#e53935' }}
                                 >
-                                    🗑 Видалити
+                                    Видалити
                                 </button>
                             </td>
                         </tr>
@@ -113,8 +115,9 @@ const th = {
     padding: '12px 16px', textAlign: 'left',
     fontWeight: 600, color: '#333', fontSize: 13,
 };
-const td = { padding: '12px 16px', verticalAlign: 'middle', fontSize: 14 };
+const td = { padding: '12px 16px', verticalAlign: 'middle', fontSize: 14, color: '#333' };
 const btnOutline = {
     padding: '5px 10px', borderRadius: 6, border: '1px solid #ddd',
     background: 'transparent', cursor: 'pointer', fontSize: 12,
+    color: '#333'
 };
